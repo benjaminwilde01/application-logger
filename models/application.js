@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const applicationSchema = new mongoose.Schema({
     name: { type: String, required: true },
     date: { type: Date, required: true },
-    service: { type: String, required: true },
+    position: String,
+    service: String,
     location: String,
     note: String,
     interview: Boolean,
