@@ -4,8 +4,8 @@ const applicationSchema = new mongoose.Schema({
     name: { type: String, required: true },
     date: { type: Date, required: true },
     service: { type: String, required: true },
-    location: type: String,
-    note: type: String,
+    location: String,
+    note: String,
     interview: Boolean,
     offer: Boolean
 }, { timestamps: true });
