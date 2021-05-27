@@ -8,11 +8,14 @@ const PORT = 3000;
 
 // Express Middleware
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(methodOverride('_method'));
+app.use(express.static('public'));
+
+
 
 
 // Exteernal Middleware
-app.use(methodOverride('_method'));
-
 // This makes and names the database whatever is after the /
 mongoose.connect(`mongodb://localhost:27017/job-applications`, { 
     useNewUrlParser: true,

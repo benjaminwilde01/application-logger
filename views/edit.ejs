@@ -14,31 +14,35 @@
 
     <form action="/applications" method="POST">
         <label for="name">Company Name:</label>
-        <input type="text" name="name" id="name"/>
+        <input type="text" name="name" id="name" value="<%= applications.name %>"/>
 
         <label for="date">Applied On:</label>
-        <input type="date" name="date" id="date"/>
+        <input type="date" name="date" id="date" value="<%= applications.date %>"/>
 
         <label for="position">Position Applied For:</label>
-        <input type="text" name="position" id="position"/>
+        <input type="text" name="position" id="position" value="<%= applications.position %>"/>
 
         <label for="jobPosting">Job Posting:</label>
-        <input type="text" name="jobPosting" id="jobPosting"/>
+        <input type="text" name="jobPosting" id="jobPosting" value="<%= applications.jobPosting %>"/>
 
         <label for="service">Site/Service Used:</label>
-        <input type="text" name="service" id="service"/>
+        <input type="text" name="service" id="service" value="<%= applications.service %>"/>
 
         <label for="location">Company Address:</label>
-        <input type="text" name="location" id="location"/>
+        <input type="text" name="location" id="location" value="<%= applications.location %>"/>
 
         <label for="comment">Comments:</label>
-        <input type="text" name="comment" id="comment"/>
+        <input type="text" name="comment" id="comment" value="<%= applications.comment %>"/>
 
         <label for="interview">Interview?</label>
-        <input type="checkbox" name="interview" id="interview"/>
+        <input type="checkbox" name="interview" id="interview" value="<%= applications.interview %>"/>
 
         <label for="offer">Job Offer?</label>
-        <input type="checkbox" name="offer" id="offer"/>
+        <input type="checkbox" name="offer" id="offer" 
+            <% if (applications.offer === true) { %>
+                checked
+                <% } %>    
+        />
 
         <input type="submit" value="Submit">
     </form>

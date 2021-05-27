@@ -7,10 +7,38 @@
     <title>Applications Sent</title>
 </head>
 <body>
-    <nav>
-        <h2>List of Sent Applications</h2>
-        <a href="/applications/new">Add New Job Application</a>
-    </nav>
+    <div class="container">
+        <nav>
+            <h2>List of Sent Applications</h2>
+            <a href="/applications/new">Add New Job Application</a>
+        </nav>
+        <hr>
+        <div class="list">
+            
+                <% for (let i = 0; i < applications.length; i++) { %>
+                <div class="list-items">
+                        Company Name: <%= applications[i].name %>
+                        <br>
+                        Position Applied For: <%= applications[i].position %>
+                        <br>
+                        <a href="<%= applications[i].jobPostings %>">Link to Job Posting</a> 
+                        <br>
+                        <div class="btns">
+                            <a href="/applications/<%= applications[i].id %>">More Details</a>
+                            <!-- EDIT LINK -->
+                            <a href="/applications/<%= applications[i].id %>/edit">EDIT</a>
+                        </div>
+
+                        <hr>
+                </div>
+                <% } %>
+        </div>
+
+    </div>
+    
+
+
+
 
 </body>
 </html>

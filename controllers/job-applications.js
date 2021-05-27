@@ -3,12 +3,20 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 // IMPORT MODEL
-const Application = require('../models/application.js')
+const Application = require('../models/application.js');
 
 // ROUTES
 // Index
 router.get('/', (req, res) => {
-    res.render('index.ejs')
+    Application.find({}, (err, allApplications) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.render('index.ejs', {
+                applications: allApplications
+            });
+        };
+    });
 });
 
 // NEW
@@ -31,6 +39,24 @@ router.post('/', (req, res) => {
     // console.log(req.body);
     Application.create(req.body, (err, createdApplication) => {
         res.redirect('/applications');
+    });
+});
+
+// SHOW
+router.get('/:id', (req, res) => {
+    Application.findById(req.params.id, (err, foundApplication) => {
+        res.render('show.ejs', {
+            applications: foundApplication
+        });
+    });
+});
+
+// EDIT PAGE
+router.get('/:id/edit', (req, res) => {
+    Application.findById(req.params.id, (err, foundApplication) => {
+        res.render('edit.ejs', {
+            applications: foundApplication
+        });
     });
 });
 
