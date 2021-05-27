@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const applicationSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    date: { type: Date, required: true },
+    name: String,
+    date: Date,
     position: String,
     jobPosting: String,
     service: String,

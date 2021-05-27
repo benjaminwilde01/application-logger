@@ -44,6 +44,7 @@ router.post('/', (req, res) => {
 
 // SHOW
 router.get('/:id', (req, res) => {
+    
     Application.findById(req.params.id, (err, foundApplication) => {
         res.render('show.ejs', {
             applications: foundApplication
@@ -59,6 +60,34 @@ router.get('/:id/edit', (req, res) => {
         });
     });
 });
+
+// EDIT PUT ROUTE
+router.put('/:id', (req, res) => {
+    if (req.body.interview === 'on') {
+        req.body.interview = true;
+    } else {
+        req.body.interview = false;
+    };
+    if (req.body.offer === 'on') {
+        req.body.offer = true;
+    } else {
+        req.body.offer = false;
+    };
+    console.log(req.body)
+
+    Application.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel) => {
+        res.redirect('/applications')
+
+    });
+});
+
+// DELETE
+router.delete('/:id', (req, res) => {
+    Application.findByIdAndRemove(req.params.id, (err, deletedApplication) => {
+        res.redirect('/applications');
+    });
+});
+
 
 
 module.exports = router;

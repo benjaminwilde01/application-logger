@@ -12,12 +12,12 @@
         <a href="/applications/">Return To Home Page</a>
     </nav>
 
-    <form action="/applications" method="POST">
+    <form action="/applications/<%= applications.id %>?_method=PUT" method="POST">
         <label for="name">Company Name:</label>
         <input type="text" name="name" id="name" value="<%= applications.name %>"/>
 
-        <label for="date">Applied On:</label>
-        <input type="date" name="date" id="date" value="<%= applications.date %>"/>
+        <!-- <label for="date">Applied On:</label>
+        <input type="date" name="date" id="date" value="<%= applications.date %>"/> -->
 
         <label for="position">Position Applied For:</label>
         <input type="text" name="position" id="position" value="<%= applications.position %>"/>
@@ -35,13 +35,16 @@
         <input type="text" name="comment" id="comment" value="<%= applications.comment %>"/>
 
         <label for="interview">Interview?</label>
-        <input type="checkbox" name="interview" id="interview" value="<%= applications.interview %>"/>
+        <input type="checkbox" name="interview" id="interview"
+            <% if (applications.offer === true) { %>
+            checked
+            <% } %> />
 
         <label for="offer">Job Offer?</label>
         <input type="checkbox" name="offer" id="offer" 
             <% if (applications.offer === true) { %>
                 checked
-                <% } %>    
+            <% } %>    
         />
 
         <input type="submit" value="Submit">

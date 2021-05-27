@@ -21,12 +21,18 @@
                         <br>
                         Position Applied For: <%= applications[i].position %>
                         <br>
-                        <a href="<%= applications[i].jobPostings %>">Link to Job Posting</a> 
+                        <a href="<%= applications[i].jobPosting %>">Link to Job Posting</a> 
                         <br>
                         <div class="btns">
                             <a href="/applications/<%= applications[i].id %>">More Details</a>
+                            <br>
                             <!-- EDIT LINK -->
                             <a href="/applications/<%= applications[i].id %>/edit">EDIT</a>
+                            <br>
+                            <!-- DELETE FORM -->
+                            <form action="/applications/<%= applications[i].id %>?_method=DELETE" method="POST">
+                                <input type="submit" value="DELETE"/>
+                            </form>
                         </div>
 
                         <hr>
