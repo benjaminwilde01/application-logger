@@ -8,16 +8,18 @@ const Application = require('../models/application.js');
 // ROUTES
 // Index
 router.get('/', (req, res) => {
-    Application.find({}, (err, allApplications) => {
-        if (err) {
-            res.send(err)
-        } else {
-            res.render('index.ejs', {
-                applications: allApplications
-            });
-        };
-    });
-});
+//     Application.find({}, (err, allApplications) => {
+//         if (err) {
+//             res.send(err)
+//         } else {
+//             res.render('index.ejs', {
+//                 applications: allApplications
+//             });
+//         };
+//     });
+// });
+    res.send('g')
+})
 
 // NEW
 router.get('/new', (req, res) => {
