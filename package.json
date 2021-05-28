@@ -1,6 +1,9 @@
 {
   "name": "application-logger",
   "version": "1.0.0",
+  "engines": {
+    "node": "v15.14.0"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
