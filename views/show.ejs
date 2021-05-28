@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/show.css">
+    <title>Applications Sent</title>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <h2><%= applications.name %></h2>
+            <a href="/applications/">Back</a>
+        </nav>
+        <hr>
+        <div class="list">
+            
+               
+                <div class="list-items">
+                        Position Applied For: <%= applications.position %>
+                        <br>
+                        Date Applied: <%= applications.date %>
+                        <br>
+                        Service/Site Used: <%= applications.service %>
+                        <br>
+                        Company Address: <%= applications.location %>
+                        <br>
+                        Comments: <%= applications.note %>
+                        <br>
+                        Interview? <% if (applications.interview === true) { %>
+                                        Yes
+                                    <% } else { %>
+                                        No
+                                        <% } %>
+                        <br>
+                        Offer? <% if (applications.offer === true) { %>
+                            Yes
+                        <% } else { %>
+                            No
+                            <% } %>
+                        <br>
+
+                
+                </div>
+        </div>
+
+    </div>
+    
+
+
+
+
+</body>
+</html>
