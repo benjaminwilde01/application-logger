@@ -4,3 +4,27 @@
     font-family: 'Roboto Mono', Arial, Helvetica, sans-serif, monospace;
 }
 
+.nav {
+    background-color: #B0BEC5;
+
+}
+
+header {
+    margin-top: 30px;
+}
+
+/* .listing {
+    margin: 10px 0 10px 0;
+} */
+
+.card {
+    margin: 20px 0;
+}
+
+.footer {
+    background-color: #B0BEC5;
+}
+
+.linkedin {
+    width: 25px;
+}
