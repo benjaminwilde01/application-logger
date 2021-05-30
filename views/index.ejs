@@ -21,16 +21,20 @@
                         <div class="card-body">
                             <h5 class="card-title"> Company Name: <%= applications[i].name %></h5>
                             <h6 class="card-subtitle">Position: <%= applications[i].position %></h6>
-                            <a class="card-link" href="<%= applications[i].jobPosting %>">Link to Job Posting</a> 
+                            <a class="card-link"href="<%= applications[i].jobPosting %>">Link to Job Posting</a> 
                             <br>
                             <a class="card-link" href="/applications/<%= applications[i].id %>">More Details</a>
                             <br>
-                            <!-- EDIT LINK -->
-                            <a class="card-link" href="/applications/<%= applications[i].id %>/edit">EDIT</a>
-                            <!-- DELETE FORM -->
-                            <form action="/applications/<%= applications[i].id %>?_method=DELETE" method="POST">
-                                <input type="submit" value="DELETE"/>
-                            </form>
+
+                            <div class="btn-group d-flex flex-wrap justify-content-between">
+                                <!-- EDIT LINK -->
+                                <a class="btn btn-primary" id="edit" href="/applications/<%= applications[i].id %>/edit">EDIT</a>
+                                <!-- DELETE FORM -->
+                                <form action="/applications/<%= applications[i].id %>?_method=DELETE" method="POST">
+                                <input class="btn btn-primary" type="submit" value="DELETE"/>
+                                </form>
+                            </div>
+                            
                         </div>
                 </div>
                 <% } %>

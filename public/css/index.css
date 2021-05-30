@@ -4,6 +4,10 @@
     font-family: 'Roboto Mono', Arial, Helvetica, sans-serif, monospace;
 }
 
+.container-fluid {
+    padding: 0;
+}
+
 .nav {
     background-color: #B0BEC5;
 
@@ -13,13 +17,25 @@ header {
     margin-top: 30px;
 }
 
-/* .listing {
-    margin: 10px 0 10px 0;
-} */
 
 .card {
     margin: 20px 0;
 }
+
+.card-subtitle {
+    padding-bottom: 15px;
+}
+
+
+#edit {
+    border-radius: 3px;
+    padding-right: 10px;
+}
+
+.btn-group {
+    margin-top: 15px;
+}
+
 
 .footer {
     background-color: #B0BEC5;
