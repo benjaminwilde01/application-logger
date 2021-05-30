@@ -13,12 +13,16 @@ header {
     margin-top: 30px;
 }
 
-/* .listing {
-    margin: 10px 0 10px 0;
-} */
+.checkbox {
+    margin-left: 12px;
+}
 
-.card {
-    margin: 20px 0;
+.check {
+    padding-left: 15px;
+} 
+
+.form-check-label {
+    padding: 5px;
 }
 
 .footer {
