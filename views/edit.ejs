@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONTS AND META -->
+    <%- include ('./partials/head.ejs') %>
     <link rel="stylesheet" href="/../css/edit.css">
     <title>Edit Applications</title>
 </head>
 <body>
-    <nav>
+    <!-- NAV -->
+        <%- include ('./partials/nav.ejs') %>
+    <header>
         <h2>Edit Job Application</h2>
         <a href="/applications/">Return To Home Page</a>
-    </nav>
+    </header>
 
     <form action="/applications/<%= applications.id %>?_method=PUT" method="POST">
         <label for="name">Company Name:</label>
@@ -50,7 +51,8 @@
 
         <input type="submit" value="Submit">
     </form>
-
+    <!-- FOOTER -->
+    <%- include ('./partials/footer.ejs') %>
 
 </body>
 </html>

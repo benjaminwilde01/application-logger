@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONTS AND META -->
+    <%- include ('./partials/head.ejs') %>
     <link rel="stylesheet" href="../css/index.css">
     <title>Applications Sent</title>
 </head>
 <body>
-    <div class="container">
-        <nav>
+    <div class="container-fluid">
+        <!-- NAV -->
+        <%- include ('./partials/nav.ejs') %>
+        <header>
             <h2>List of Sent Applications</h2>
-            <a href="/applications/new">Add New Job Application</a>
-        </nav>
-        <hr>
+        </header>
+        
         <div class="list">
             
                 <% for (let i = 0; i < applications.length; i++) { %>
@@ -36,11 +36,12 @@
                             </form>
                         </div>
 
-                        <hr>
+                        
                 </div>
                 <% } %>
         </div>
-
+        <!-- FOOTER -->
+        <%- include ('./partials/footer.ejs') %>
     </div>
     
 
