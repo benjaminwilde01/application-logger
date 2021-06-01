@@ -7,52 +7,86 @@
     <title>Edit Applications</title>
 </head>
 <body>
-    <!-- NAV -->
+    <div class="container-fluid">
+        <!-- NAV -->
         <%- include ('./partials/nav.ejs') %>
-    <header>
-        <h2>Edit Job Application</h2>
-        <a href="/applications/">Return To Home Page</a>
-    </header>
+        <header>
+            <h2>Edit Job Application</h2>
+            <a href="/applications/">Return To Home Page</a>
+        </header>
 
-    <form action="/applications/<%= applications.id %>?_method=PUT" method="POST">
-        <label for="name">Company Name:</label>
-        <input type="text" name="name" id="name" value="<%= applications.name %>"/>
+        <form class="form-horizontal" action="/applications/<%= applications.id %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Company Name</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="name" id="name" value="<%= applications.name %>"/>
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label class="control-label col-sm-2" for="date">Applied On:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="date" name="date" id="date"/>
+                </div>
+            </div> -->
+                
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="position">Position:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="position" id="position" value="<%= applications.position %>"/>
+                </div>
+            </div>
+                
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="jobPosting">Job Posting:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="jobPosting" id="jobPosting" value="<%= applications.jobPosting %>"/>
+                </div>
+            </div>
+                
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="service">Service Used:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="service" id="service" placeholder="Indeed/LinkedIn/Hired" value="<%= applications.service %>"/>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="location">Company Address:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="location" id="location" value="<%= applications.location %>"/>
+                </div>
+            </div>
 
-        <!-- <label for="date">Applied On:</label>
-        <input type="date" name="date" id="date" value="<%= applications.date %>"/> -->
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="comment">Comments:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="comment" id="comment" value="<%= applications.comment %>"/>
+                </div>
+            </div>
+            
+            <div class="checkbox form-group form-check-inline">
+                <label class="form-check-label" for="interview">Interview?</label>
+                <input class="check form-check-input" type="checkbox" name="interview" id="interview"
+                <% if (applications.offer === true) { %>
+                    checked
+                    <% } %>/>
+            </div>
 
-        <label for="position">Position Applied For:</label>
-        <input type="text" name="position" id="position" value="<%= applications.position %>"/>
+            <div class="checkbox form-group form-check-inline">
+                <label class="form-check-label" for="offer">Job Offer?</label>
+                <input class="check form-check-input" type="checkbox" name="offer" id="offer"
+                <% if (applications.offer === true) { %>
+                    checked
+                <% } %>/>
+            </div>
+            
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    
+        <!-- FOOTER -->
+        <%- include ('./partials/footer.ejs') %>
 
-        <label for="jobPosting">Job Posting:</label>
-        <input type="text" name="jobPosting" id="jobPosting" value="<%= applications.jobPosting %>"/>
-
-        <label for="service">Site/Service Used:</label>
-        <input type="text" name="service" id="service" value="<%= applications.service %>"/>
-
-        <label for="location">Company Address:</label>
-        <input type="text" name="location" id="location" value="<%= applications.location %>"/>
-
-        <label for="comment">Comments:</label>
-        <input type="text" name="comment" id="comment" value="<%= applications.comment %>"/>
-
-        <label for="interview">Interview?</label>
-        <input type="checkbox" name="interview" id="interview"
-            <% if (applications.offer === true) { %>
-            checked
-            <% } %> />
-
-        <label for="offer">Job Offer?</label>
-        <input type="checkbox" name="offer" id="offer" 
-            <% if (applications.offer === true) { %>
-                checked
-            <% } %>    
-        />
-
-        <input type="submit" value="Submit">
-    </form>
-    <!-- FOOTER -->
-    <%- include ('./partials/footer.ejs') %>
-
+    </div>
+    
 </body>
 </html>
