@@ -7,16 +7,48 @@
     <title>Applications Sent</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <!-- NAV -->
         <%- include ('./partials/nav.ejs') %>
-        <header>
+        <header class="text-center">
             <h2><%= applications.name %></h2>
             <a href="/applications/">Back</a>
         </header>
-        <hr>
-        <div class="list">   
-            <div class="list-items">
+       
+        <div class="d-flex justify-content-center card mx-auto" style="width: fit-content;">
+            <ul class="list-group list-group-flush" style="width: fit-content;">
+                <li class="list-group-item">
+                    Position Applied For: <%= applications.position %>
+                </li>
+                <li class="list-group-item">
+                    Date Applied: <%= applications.date %>
+                </li>
+                <li class="list-group-item">
+                    Service/Site Used: <%= applications.service %>
+                </li>
+                <li class="list-group-item">
+                    Company Address: <%= applications.location %>
+                </li>
+                <li class="list-group-item">
+                    Comments: <%= applications.note %>
+                </li>
+                <li class="list-group-item">
+                    Interview? <% if (applications.interview === true) { %>
+                        Yes
+                    <% } else { %>
+                        No
+                        <% } %>
+                </li>
+                <li class="list-group-item">
+                    Offer? <% if (applications.offer === true) { %>
+                        Yes
+                            <% } else { %>
+                            No
+                            <% } %>
+                </li>
+            </ul>   
+
+            <!-- <div class="list-items">
                     Position Applied For: <%= applications.position %>
                     <br>
                     Date Applied: <%= applications.date %>
@@ -39,7 +71,7 @@
                             No
                             <% } %>
                     <br>
-            </div>
+            </div> -->
         </div>
         <!-- FOOTER -->
         <%- include ('./partials/footer.ejs') %>
