@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- GOOGLE FONTS AND META -->
+    <%- include ('../partials/head.ejs') %>
+    <link rel="stylesheet" href="../css/index.css">
+    <title>Sign In</title>
 </head>
 <body>
+    <!-- NAV -->
+    <%- include ('../partials/nav.ejs') %>
     <form action="/sessions" method="POST">
         <div class="form-group">
             <label class="control-label col-sm-2" for="username">Username</label>
@@ -24,5 +26,7 @@
         <input class="btn btn-primary" type="submit" value="Sign In">
 
     </form>
+    <!-- FOOTER -->
+        <%- include ('../partials/footer.ejs') %>
 </body>
 </html>
