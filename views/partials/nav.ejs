@@ -1,4 +1,37 @@
 <nav class="container-fluid nav navbar navbar-inverse">
-    <h1 class="navbar-text">Job Applications Log</h1>
+    <!-- <h1 class="navbar-text">Job Applications Log</h1>
     <a class="navbar-brand btn align-right" href="/applications/new">Add New Job Application</a>
+
+    <a href="/users">Sign Up</a>
+    <a href="/sessions/new">Sign In</a> -->
+    <div class="d-flex justify-content-between align-items-center navText" style="width: 100%;">
+        
+            <h1 class="navbar-text">Job Applications Log</h1>
+        <div class="d-flex">
+            <ul class="d-flex justify-content-around flex-row navbar-nav mr-auto">
+                <div class="welcome">
+                    <% if (currentUser) { %>
+                        <li class="">Welcome, <%= currentUser.username %></li>
+                        <li class="">
+                          <form class="" action="/sessions?_method=DELETE" method="POST">
+                            <input type="submit" value="Log Out" class="btn-small red" />
+                          </form>
+                        </li>
+                        <% } else { %>
+                </div>
+                
+                <div class="login">
+                    <li class=""><a href="/users">Sign Up</a></li>
+                    <li class=""><a href="/sessions/new">Log In</a></li>
+                </div>
+                
+                <% } %>
+              </ul>
+        </div>
+        
+    </div>
+    
+        
+    
+    
 </nav>
