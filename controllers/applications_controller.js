@@ -13,7 +13,8 @@ router.get('/', (req, res) => {
             res.send(err)
         } else {
             res.render('index.ejs', {
-                applications: allApplications
+                applications: allApplications,
+                currentUser: req.session.currentUser
             });
         };
     });
@@ -21,7 +22,9 @@ router.get('/', (req, res) => {
 
 // NEW
 router.get('/new', (req, res) => {
-    res.render('new.ejs')
+    res.render('new.ejs', {
+        currentUser: req.session.currentUser
+    })
 });
 
 // CREATE
@@ -47,7 +50,8 @@ router.get('/:id', (req, res) => {
     
     Application.findById(req.params.id, (err, foundApplication) => {
         res.render('show.ejs', {
-            applications: foundApplication
+            applications: foundApplication,
+            currentUser: req.session.currentUser
         });
     });
 });
@@ -56,7 +60,8 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
     Application.findById(req.params.id, (err, foundApplication) => {
         res.render('edit.ejs', {
-            applications: foundApplication
+            applications: foundApplication,
+            currentUser: req.session.currentUser
         });
     });
 });
