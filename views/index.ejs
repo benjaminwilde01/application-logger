@@ -17,21 +17,21 @@
         
         <div class="listing container d-flex flex-wrap justify-content-around">
             
-                <% for (let i = 0; i < applications.length; i++) { %>
+                <% for (let i = 0; i < currentUser.length; i++) { %>
                 <div class="card" style="width: 30%;">
                         <div class="card-body">
-                            <h5 class="card-title"> Company Name: <%= applications[i].name %></h5>
-                            <h6 class="card-subtitle">Position: <%= applications[i].position %></h6>
-                            <a class="card-link"href="<%= applications[i].jobPosting %>">Link to Job Posting</a> 
+                            <h5 class="card-title"> Company Name: <%= currentUser[i].name %></h5>
+                            <h6 class="card-subtitle">Position: <%= currentUser[i].position %></h6>
+                            <a class="card-link"href="<%= currentUser[i].jobPosting %>">Link to Job Posting</a> 
                             <br>
-                            <a class="card-link" href="/applications/<%= applications[i].id %>">More Details</a>
+                            <a class="card-link" href="/applications/<%= currentUser[i].id %>">More Details</a>
                             <br>
 
                             <div class="btn-group d-flex flex-wrap justify-content-between">
                                 <!-- EDIT LINK -->
-                                <a class="btn btn-primary" id="edit" href="/applications/<%= applications[i].id %>/edit">EDIT</a>
+                                <a class="btn btn-primary" id="edit" href="/applications/<%= currentUser[i].id %>/edit">EDIT</a>
                                 <!-- DELETE FORM -->
-                                <form action="/applications/<%= applications[i].id %>?_method=DELETE" method="POST">
+                                <form action="/applications/<%= currentUser[i].id %>?_method=DELETE" method="POST">
                                 <input class="btn btn-primary" type="submit" value="DELETE"/>
                                 </form>
                             </div>

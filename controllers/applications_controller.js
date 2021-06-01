@@ -1,3 +1,4 @@
+const { application } = require('express');
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -5,20 +6,38 @@ const mongoose = require('mongoose');
 // IMPORT MODEL
 const Application = require('../models/application.js');
 
+// Custom Middleware
+const isAuthenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+      return next()
+    } else {
+      res.redirect('/sessions/new')
+    }
+  }
+
+
+  
 // ROUTES
 // Index
-router.get('/', (req, res) => {
-    Application.find({}, (err, allApplications) => {
-        if (err) {
-            res.send(err)
-        } else {
+router.get('/', isAuthenticated, (req, res) => {
+        Application.find({}, function(err, app) {
+            let filteredArray = []
+            for (let i = 0; i < app.length; i++) {
+               
+                if (app[i].author === req.session.currentUser._id) {
+                    filteredArray.push(app[i])
+               }
+            }
+    console.log(typeof(req.session.currentUser._id))
+
+            console.log(filteredArray)
             res.render('index.ejs', {
-                applications: allApplications,
-                currentUser: req.session.currentUser
-            });
-        };
-    });
-});
+                currentUser: filteredArray,
+            })
+        })
+    })
+    
+    
 
 // NEW
 router.get('/new', (req, res) => {
@@ -40,15 +59,30 @@ router.post('/', (req, res) => {
         req.body.offer = false;
     };
     // console.log(req.body);
-    Application.create(req.body, (err, createdApplication) => {
+
+    let createApplication = {
+        name: req.body.name,
+        position: req.body.position,
+        jobPosting: req.body.position,
+        service: req.body.service,
+        location: req.body.location,
+        comment: req.body.comment,
+        interview: req.body.interview,
+        offer: req.body.offer,
+        author: req.session.currentUser._id
+    }
+    console.log(createApplication)
+    Application.create(createApplication, (err, createApplication) => {
         res.redirect('/applications');
-    });
+        
+    })
 });
 
 // SHOW
 router.get('/:id', (req, res) => {
-    
     Application.findById(req.params.id, (err, foundApplication) => {
+        console.log(req.params.id)
+        
         res.render('show.ejs', {
             applications: foundApplication,
             currentUser: req.session.currentUser
