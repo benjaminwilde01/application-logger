@@ -6,19 +6,23 @@ const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express();
 const db = mongoose.connection;
+const session = require('express-session');
+const bcrypt = require('bcryptjs')
 
+require('dotenv').config();
 
 //___________________
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3000;
+const MONGODBNAME = process.env.MONGODBNAME;
 
 //___________________
 //Database
 //___________________
 // How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/'+ 'job-applications';
+const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost:27017/${MONGODBNAME}`;
 
 // Connect to Mongo
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
@@ -35,6 +39,15 @@ db.on('open' , ()=>{});
 //Middleware
 //___________________
 
+
+
+// sessions
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false,
+}));
+
 //use public folder for static assets
 app.use(express.static('public'));
 
@@ -45,9 +58,15 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
-// Controller
-const applicationsController = require('./controllers/job-applications.js');
+// Controllers
+const applicationsController = require('./controllers/applications_controller.js');
 app.use('/applications', applicationsController);
+
+const userController = require('./controllers/users_controller.js');
+app.use('/users', userController);
+
+const sessionsController = require('./controllers/sessions_controller.js');
+app.use('/sessions', sessionsController);
 
 //___________________
 // Routes
@@ -56,6 +75,47 @@ app.use('/applications', applicationsController);
 app.get('/' , (req, res) => {
     res.redirect('/applications');
   });
+
+app.get('/create-session', (req, res) => {
+  req.session.potato = 'tomato';
+  res.redirect('/');
+});
+
+app.get('/retrieve-session', (req, res) => {
+  console.log(req.session);
+  if (req.session.potato === 'tomato') {
+    console.log('that potato is a tomato');
+  } else {
+    console.log('thank got it is not a potato');
+  }
+  res.redirect('/');
+});
+
+app.get('/update-session', (req, res) => {
+  console.log(req.session)
+  req.session.potato = 'potato';
+  console.log(req.session)
+  res.redirect('/')
+});
+
+app.get('/delete-session', (req, res) => {
+  req.session.destroy((err) => {
+    if(err) {
+      console.log('something went wrong removing a session');
+    } else {
+      console.log('session removed successfully');
+    }
+  });
+  res.redirect('/');
+});
+
+app.get('/test-bcrypt', (req, res) => {
+  const hashedString = bcrypt.hashSync('password', bcrypt.genSaltSync(10));
+  console.log(hashedString);
+  const samePassword = bcrypt.compareSync('wrongPassword', hashedString);
+  console.log(`The password is the same? ${samePassword}`);
+  res.redirect('/');
+})
 
 
 //___________________

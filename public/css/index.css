@@ -36,6 +36,9 @@ header {
     margin-top: 15px;
 }
 
+.navText {
+    padding: 15px;
+}
 
 .footer {
     background-color: #B0BEC5;
