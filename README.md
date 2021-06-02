@@ -1,31 +1,30 @@
 # application-tracker
 
 ## Links:
-- GitHub: 
+- GitHub: https://github.com/benjaminwilde01/application-logger
 - Project: https://application-log.herokuapp.com/
 
 ## Overview
 
-For project #1, I made a game of Snowman(otherwise known as Hangman).
+For project #2, I made a site that allows you to enter information about job applications the user has submitted.
 
-When a user goes to the site, they are greeted with a message welcoming them to the game and explaining the rules.
+When a user goes to the site, they are prompted to sign up or log in.
 
-They are then prompted to press the 'start' button.
+They are then directed to the home page which will allow them to add new applications.
 
-Once they press the 'start' button, the alphabet buttons appear along with the blanked out secret word they are to guess.
+Once they submit the applications information they will then see that information displayed on the home page.
 
-Now they are given 6 incorrect guesses and with each incorrect guess the counter decrements and with each correct guess the chosen letter is displayed.
-
-If they run out of guesses, then a message pops up telling them they have lost and are given the opportunity to play again. If they choose to play again the page reloads and the game starts over.
-
-If they correctly guess the word, then a message pops up telling them they have won and are given the opportunity to play again. If they choose to play again the page reloads and the game starts over.
+On the home page they are given the option to edit, delete, and view more details about the submitted application.
 
 
 ## Technologies Used:
+- Node.js
+- MongoDB
 - HTML
 - CSS
 - Javascript
 
 ## Future Development:
-- Add a timer that limits time between guesses
-- Keep track of wins and losses
+- Add ability to filter and search through applications
+- Keep track of how many applications have been sent
+- Ability for user to edit the labels for the forms
