@@ -59,8 +59,9 @@ router.post('/', (req, res) => {
 
     let createApplication = {
         name: req.body.name,
+        date: req.body.date,
         position: req.body.position,
-        jobPosting: req.body.position,
+        jobPosting: req.body.jobPosting,
         service: req.body.service,
         location: req.body.location,
         comment: req.body.comment,
