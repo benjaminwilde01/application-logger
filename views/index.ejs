@@ -21,10 +21,9 @@
                     <% for (let i = 0; i < currentUser.length; i++) { %>
                     <div class="card" style="width: 30%;">
                             <div class="card-body">
-                                <h5 class="card-title"> Company Name: <%= currentUser[i].name %></h5>
+                                <h5 class="card-title"> Company: <%= currentUser[i].name %></h5>
                                 <h6 class="card-subtitle">Position: <%= currentUser[i].position %></h6>
-                                <a class="card-link"href="<%= currentUser[i].jobPosting %>">Link to Job Posting</a> 
-                                <br>
+                                
                                 <a class="card-link" href="/applications/<%= currentUser[i].id %>">More Details</a>
                                 <br>
     

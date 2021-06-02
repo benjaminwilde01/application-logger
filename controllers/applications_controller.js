@@ -28,9 +28,7 @@ router.get('/', isAuthenticated, (req, res) => {
                     filteredArray.push(app[i])
                }
             }
-    console.log(typeof(req.session.currentUser._id))
 
-            console.log(filteredArray)
             res.render('index.ejs', {
                 currentUser: filteredArray,
             })
@@ -58,7 +56,6 @@ router.post('/', (req, res) => {
     } else {
         req.body.offer = false;
     };
-    // console.log(req.body);
 
     let createApplication = {
         name: req.body.name,
@@ -71,7 +68,6 @@ router.post('/', (req, res) => {
         offer: req.body.offer,
         author: req.session.currentUser._id
     }
-    console.log(createApplication)
     Application.create(createApplication, (err, createApplication) => {
         res.redirect('/applications');
         
@@ -81,7 +77,6 @@ router.post('/', (req, res) => {
 // SHOW
 router.get('/:id', (req, res) => {
     Application.findById(req.params.id, (err, foundApplication) => {
-        console.log(req.params.id)
         
         res.render('show.ejs', {
             applications: foundApplication,

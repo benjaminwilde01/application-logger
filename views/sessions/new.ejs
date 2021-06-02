@@ -9,6 +9,8 @@
 <body>
     <!-- NAV -->
     <%- include ('../partials/nav.ejs') %>
+
+    
     <form action="/sessions" method="POST">
         <div class="form-group">
             <label class="control-label col-sm-2" for="username">Username</label>
@@ -19,11 +21,11 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="date">Password</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" name="password" id="password"/>
+                <input class="form-control" type="password" name="password" id="password"/>
             </div>
         </div>
 
-        <input class="btn btn-primary" type="submit" value="Sign In">
+        <input class="sign-up-btn btn btn-primary" type="submit" value="Log In">
 
     </form>
     <!-- FOOTER -->
