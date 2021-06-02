@@ -12,10 +12,10 @@
         <%- include ('./partials/nav.ejs') %>
         <header class="text-center">
             <h2><%= applications.name %></h2>
-            <a href="/applications/">Back</a>
+            <a class="btn btn-primary"  href="/applications/">Back</a>
         </header>
        
-        <div class="d-flex justify-content-center card mx-auto" style="width: fit-content;">
+        <div class="container-fluid d-flex justify-content-center card mx-auto" style="width: fit-content;">
             <ul class="list-group list-group-flush" style="width: fit-content;">
                 <li class="list-group-item">
                     Position Applied For: <%= applications.position %>

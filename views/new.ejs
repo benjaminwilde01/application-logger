@@ -12,9 +12,9 @@
         <%- include ('./partials/nav.ejs') %>
         <header>
             <h2>Add New Job Application</h2>
-            <a href="/applications/">Return To Home Page</a>
+            <a class="btn btn-primary" href="/applications/">Back</a>
         </header>
-        
+        <div class="container-fluid">
             <form class="form-horizontal" action="/applications" method="POST">
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="name">Company Name</label>
@@ -77,6 +77,8 @@
                 <input class="btn btn-primary" type="submit" value="Submit">
                 
             </form>
+        </div>
+            
         
         
         <!-- FOOTER -->
