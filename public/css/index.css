@@ -44,6 +44,7 @@ header h2 {
 }
 
 .card {
+    width: 30%;
     border: #0A468F 3px solid;
     margin: 20px 0;
 }
@@ -115,3 +116,17 @@ header h2 {
 form {
   
 }
+
+@media only screen and (max-width: 998px) {
+    .card {
+      width: 40%;
+      margin-bottom: 10px;
+    }
+  }
+
+@media only screen and (max-width: 415px) {
+    .card {
+      width: 80%;
+      margin-bottom: 10px;
+    }
+  }
