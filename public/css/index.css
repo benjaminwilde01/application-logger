@@ -1,4 +1,6 @@
-
+html {
+    padding-bottom: 70px
+}
 * {
     /* height: 100%; */
     /* background-size: cover; */
@@ -44,13 +46,15 @@ header h2 {
 .card {
     border: #0A468F 3px solid;
     margin: 20px 0;
-    
-    
+}
 
+.card-title {
+    font-size: 1.5rem;
 }
 
 .card-subtitle {
-    padding-bottom: 15px;
+    padding-bottom: 5px;
+    font-size: 1.25rem;
 }
 
 
@@ -80,4 +84,25 @@ header h2 {
     width: 25px;
     background-color: white;
     color: white;
+}
+
+.sign-in {
+    
+}
+
+.control-label {
+    padding-top: 40px;
+    font-size: 1rem;
+}
+
+.form-control {
+    width: 50%
+}
+
+.sign-up-btn {
+    margin-left: 15px
+}
+
+form {
+  
 }
