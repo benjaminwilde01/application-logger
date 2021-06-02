@@ -18,27 +18,25 @@
         <div class="container-fluid d-flex justify-content-center card mx-auto" style="width: fit-content;">
             <ul class="list-group list-group-flush" style="width: fit-content;">
                 <li class="list-group-item">
-                    Position Applied For: <%= applications.position %>
+                    Position Applied For <img src="https://img.icons8.com/fluent/16/000000/arrow.png"/> <%= applications.position %>
                 </li>
                 <li class="list-group-item">
                     <% if (applications.date) { %> 
-                        Date Applied: <%= applications.date.toDateString() %>
+                        Date Applied <img src="https://img.icons8.com/fluent/16/000000/arrow.png"/> <%= applications.date.toDateString() %>
                         <% } else { %>
-                            Date Applied: NA
+                            Date Applied <img src="https://img.icons8.com/fluent/16/000000/arrow.png"/> N/A
                             <% } %>
                 </li>
                 <li class="list-group-item">
-                    Service/Site Used: <%= applications.service %>
+                    Service/Site Used <img src="https://img.icons8.com/fluent/16/000000/arrow.png"/> <%= applications.service %>
                 </li>
                 <li class="list-group-item">
-                    Company Location: <%= applications.location %>
+                    Company Location <img src="https://img.icons8.com/fluent/16/000000/arrow.png"/> <%= applications.location %>
                 </li>
                 <li class="list-group-item">
-                    Comments: <%= applications.note %>
+                    Comments <img src="https://img.icons8.com/fluent/16/000000/arrow.png"/> <%= applications.note %>
                 </li>
-                <li class="list-group-item">
-                    <a href="<%= applications.jobPosting %>">Link to Job Description</a>
-                </li>
+                
                 <li class="list-group-item">
                     Interview? <% if (applications.interview === true) { %>
                         Yes
@@ -52,6 +50,9 @@
                             <% } else { %>
                             No
                             <% } %>
+                </li>
+                <li class="list-group-item">
+                    <a href="<%= applications.jobPosting %>">Link to Job Description</a>
                 </li>
             </ul>   
 

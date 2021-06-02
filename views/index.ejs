@@ -21,8 +21,8 @@
                     <% for (let i = 0; i < currentUser.length; i++) { %>
                     <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"> Company: <%= currentUser[i].name %></h5>
-                                <h6 class="card-subtitle">Position: <%= currentUser[i].position %></h6>
+                                <h5 class="card-title"> Company <img src="https://img.icons8.com/fluent/16/000000/arrow.png"/> <%= currentUser[i].name %></h5>
+                                <h6 class="card-subtitle">Position <img src="https://img.icons8.com/fluent/16/000000/arrow.png"/> <%= currentUser[i].position %></h6>
                                 
                                 <a class="card-link" href="/applications/<%= currentUser[i].id %>">More Details</a>
                                 <br>

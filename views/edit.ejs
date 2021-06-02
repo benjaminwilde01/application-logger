@@ -30,35 +30,35 @@
                 </div> -->
                 
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="position">Position:</label>
+                    <label class="control-label col-sm-2" for="position">Position</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="position" id="position" value="<%= applications.position %>"/>
                     </div>
                 </div>
                     
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="jobPosting">Job Posting:</label>
+                    <label class="control-label col-sm-2" for="jobPosting">Job Posting</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="jobPosting" id="jobPosting" value="<%= applications.jobPosting %>"/>
                     </div>
                 </div>
                     
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="service">Service Used:</label>
+                    <label class="control-label col-sm-2" for="service">Service Used</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="service" id="service" placeholder="Indeed/LinkedIn/Hired" value="<%= applications.service %>"/>
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="location">Company Location:</label>
+                    <label class="control-label col-sm-2" for="location">Company Location</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="location" id="location" value="<%= applications.location %>"/>
                     </div>
                 </div>
     
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="comment">Comments:</label>
+                    <label class="control-label col-sm-2" for="comment">Comments</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="comment" id="comment" value="<%= applications.comment %>"/>
                     </div>
@@ -67,7 +67,7 @@
                 <div class="checkbox form-group form-check-inline">
                     <label class="form-check-label" for="interview">Interview?</label>
                     <input class="check form-check-input" type="checkbox" name="interview" id="interview"
-                    <% if (applications.offer === true) { %>
+                    <% if (applications.interview === true) { %>
                         checked
                         <% } %>/>
                 </div>
