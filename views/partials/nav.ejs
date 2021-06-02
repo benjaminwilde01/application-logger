@@ -4,29 +4,31 @@
 
     <a href="/users">Sign Up</a>
     <a href="/sessions/new">Sign In</a> -->
-    <div class="d-flex justify-content-between align-items-center navText" style="width: 100%;">
+    <div class="container-fluid d-flex justify-content-between  navText" style="width: 100%;">
         
-            <h1 class="navbar-text">Job Applications Log</h1>
-        <div class="d-flex">
-            <ul class="d-flex justify-content-around flex-row navbar-nav mr-auto">
+        <!-- <div class="container-fluid d-flex"> -->
+            <h1 class="container-fluid d-flex navbar-text">Applications Tracker</h1>
+
+            <ul class="d-flex flex-row navbar-nav mr-auto">
                 <div class="welcome">
                     <% if (currentUser) { %>
-                        <li class="">Welcome, <%= currentUser.username %></li>
+                        <li class="">Welcome!</li>
                         <li class="">
                           <form class="" action="/sessions?_method=DELETE" method="POST">
-                            <input type="submit" value="Log Out" class="btn-small red" />
+                            <input class="btn btn-primary" type="submit" value="Log Out"/>
                           </form>
                         </li>
+              </ul>
+                  
                         <% } else { %>
                 </div>
                 
                 <div class="login">
-                    <li class=""><a href="/users">Sign Up</a></li>
-                    <li class=""><a href="/sessions/new">Log In</a></li>
+                    <a class="btn btn-primary" href="/users">Sign Up</a></li>
+                    <a class="btn btn-primary" href="/sessions/new">Log In</a></li>
                 </div>
                 
                 <% } %>
-              </ul>
         </div>
         
     </div>
