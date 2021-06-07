@@ -15,33 +15,29 @@ const isAuthenticated = (req, res, next) => {
     }
   }
 
-
-  
 // ROUTES
 // Index
 router.get('/', isAuthenticated, (req, res) => {
         Application.find({}, function(err, app) {
-            let filteredArray = []
+            let filteredArray = [];
             for (let i = 0; i < app.length; i++) {
                
                 if (app[i].author === req.session.currentUser._id) {
                     filteredArray.push(app[i])
-               }
-            }
+               };
+            };
 
             res.render('index.ejs', {
                 currentUser: filteredArray,
-            })
-        })
-    })
-    
-    
+            });
+        });
+    });
 
 // NEW
 router.get('/new', (req, res) => {
     res.render('new.ejs', {
         currentUser: req.session.currentUser
-    })
+    });
 });
 
 // CREATE
@@ -68,11 +64,11 @@ router.post('/', (req, res) => {
         interview: req.body.interview,
         offer: req.body.offer,
         author: req.session.currentUser._id
-    }
+    };
     Application.create(createApplication, (err, createApplication) => {
         res.redirect('/applications');
         
-    })
+    });
 });
 
 // SHOW
@@ -111,7 +107,7 @@ router.put('/:id', (req, res) => {
     console.log(req.body)
 
     Application.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel) => {
-        res.redirect('/applications')
+        res.redirect('/applications');
 
     });
 });

@@ -9,7 +9,7 @@ const User = require('../models/users.js');
 users.get('/', (req, res) => {
     res.render('users/new.ejs', {
         currentUser: req.session.currentUser
-    })
+    });
 });
 
 users.post('/', (req, res) => {
